@@ -1,11 +1,13 @@
 $(document).ready(function() {
     $('.submit').click(function() {
         var city = $('.city').val();
+        var key = '6d69b0a0fc3d8a92c8eb8f010f1691bc';
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + "&APPID=6d69b0a0fc3d8a92c8eb8f010f1691bc",
+            url: "http://api.openweathermap.org/data/2.5/weather?q=",
             method: "GET",
-            dataType: "jsonp",
+            dataType: "json",
+            data: {q=city, appid: key, unit: 'imperial'},
             success: function(data) {
                 var widget = show(data);
                 $("#weather").html(widget);
@@ -17,11 +19,12 @@ $(document).ready(function() {
 });
 
 function show(data){
-    return "<h3>Weather:" + data.weather[0].main +"</h3>" +
-           "<h3>Weather:" + data.weather[0].description +"</h3>" +
-           "<h3>Weather:" + data.main.temp + "</h3>" +
-           "<h3>Weather:" + data.main.humidity + "</h3>" +
-           "<h3>Weather:" + data.wind.speed + "</h3>" +
+    return "<header>Current Weather" + data.name + ", " + data.sys.country +"</header>" +
+           "<h3>Weather:" + data.weather.main +"</h3>" +
+           "<h3>Description:" + data.weather.description +"</h3>" +
+           "<h3>Temperature:" + data.main.temp + "</h3>" +
+           "<h3>Humidity:" + data.main.humidity + "</h3>" +
+           "<h3>Wind Speed:" + data.wind.speed + "</h3>" +
            "<h3>Weather:" + data.weather.icon + "</h3>";
 };
 
