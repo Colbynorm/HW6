@@ -3,3 +3,11 @@ h1 {
     background-color: black;
     color: white;
 }
+
+.city {
+    padding-top: 20px;
+}
+
+.submit {
+    margin: 10px;
+}
