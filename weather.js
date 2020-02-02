@@ -17,9 +17,13 @@ $(document).ready(function() {
 });
 
 function show(data){
-    return "<h3>Weather:" +data.weather[0].main +"</h3>" +
-           "<h3>Weather:" + data.weather[0].description +"</h3>";
-}
+    return "<h3>Weather:" + data.weather[0].main +"</h3>" +
+           "<h3>Weather:" + data.weather[0].description +"</h3>" +
+           "<h3>Weather:" + data.main.temp + "</h3>" +
+           "<h3>Weather:" + data.main.humidity + "</h3>" +
+           "<h3>Weather:" + data.wind.speed + "</h3>" +
+           "<h3>Weather:" + data.weather.icon + "</h3>";
+};
 
 var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=6d69b0a0fc3d8a92c8eb8f010f1691bc";
 
