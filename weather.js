@@ -4,14 +4,21 @@ $(document).ready(function() {
         var key = '6d69b0a0fc3d8a92c8eb8f010f1691bc';
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?q=",
+            url: "http://api.openweathermap.org/data/2.5/weather",
             method: "GET",
             dataType: "json",
-            data: {q=city, appid: key, unit: 'imperial'},
+            data: {q:city, appid: key, unit: 'imperial'},
             success: function(data) {
-                var widget = show(data);
-                $("#weather").html(widget);
-                $(".city").val('');
+                var wf = '';
+                $.each(data.weather,function(index, val) {
+                wf += '<p><b>' + data.name + "</b><img src=" + val.icon + ".png></p>"
+                data.main.temp + '&deg;F' + ' | ' + val.main + " , " + 
+                val.description
+                // var widget = show(data);
+                // $("#weather").html(widget);
+                // $(".city").val('');
+            });
+               $("#weather").html(wf); 
             }
         
         });
