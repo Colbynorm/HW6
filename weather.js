@@ -28,6 +28,17 @@ $(document).ready(function() {
         
         });
 
+        var submit = $(".submit");
+        console.log(submit);
+        submit.on("click", function() {
+            console.log("click");
+            var task = $(this)
+            .siblings("#city-name")
+            .val();
+            var searchCity = $(this).attr("id");
+            localStorage.setItem(searchCity, task);
+        });
+
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + key + "&units=imperial",
             method: "GET",
