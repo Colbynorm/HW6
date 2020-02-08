@@ -7,7 +7,7 @@ $(document).ready(function() {
         //http://openweathermap.org/img/wn/10d@2x.png
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather",
+            url: "https://api.openweathermap.org/data/2.5/weather",
             method: "GET",
             dataType: "json",
             data: {q:city, APPID: key, units: 'imperial'},
@@ -40,7 +40,7 @@ $(document).ready(function() {
         });
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + key + "&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + key + "&units=imperial",
             method: "GET",
             success: function(data) {
                 var list = data.list;
@@ -69,7 +69,7 @@ function show(data){
 
 };
 
-var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=6d69b0a0fc3d8a92c8eb8f010f1691bc";
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=6d69b0a0fc3d8a92c8eb8f010f1691bc";
 
 $.ajax({
     url: queryURL,
